@@ -1,0 +1,1056 @@
+/* READ ME WHEN USE THIS CSS */
+/* This CSS was remake from https://twitter.com/Revernry. Thanks Revernry <3 */
+/* Some asset GIF, background banner from 7TV - https://www.twitch.tv/desmondvu and GoalBar - https://nerdordie.com/product/iridescent-stream-pack */
+/* If you found bug, you create issue on github: https://github.com/AppleSang/CSS-Chat-For-Youtube */
+
+/* Import Font From Google API */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ephesis&family=Pacifico&display=swap");
+ 
+
+    /* MAIN CONFIG CHAT CSS */
+    :root {
+      /* Viewer Config */
+      --Viewer-Name-Color: #64666b;
+      --viewerBg: #ececec;
+      --viewer-text: #000;
+      /* Member Config */
+      --Member-Name-Color: #2ba624;
+      --memberBg: url("https://github.com/AppleSang/CSS-Chat-For-Youtube/raw/refs/heads/main/asset/Jade.webp");
+      --member-text: #000;
+      /* Mod Config */
+      --Mod-Name-Color: #9803fc;
+      --modBg: url("https://github.com/AppleSang/CSS-Chat-For-Youtube/raw/refs/heads/main/asset/Dark_Iridescent.webp");
+      --mod-text: #FA1D97;
+      /* Owner Config */
+      --Owner-Name-Color: #f04624;
+      --ownerBg: url("https://github.com/AppleSang/CSS-Chat-For-Youtube/raw/refs/heads/main/asset/Honey.webp");
+      --owner-text: #cfe00b;
+      /* Other Config */
+      --blue: #fc0324;
+      --Chat-Disable-Text: "Đang Sửa Chat, Chờ Chút!";
+      --Chat-Disable-BG: url("https://github.com/AppleSang/CSS-Chat-For-Youtube/raw/refs/heads/main/asset/Jade.webp");
+      /* SuperSticker Config */
+      --SuperSticker-Name: #f7f70a;
+      --SuperSticker-Price: #c934eb;
+      --SuperSticker-BG-Box: url(""); /* Insert Background Box When Have SuperSticker */
+      --SuperSticker-BG-Emote: url("https://github.com/AppleSang/CSS-Chat-For-Youtube/raw/refs/heads/main/asset/Crimson.webp");
+      --SuperSticker-Text-Box: "Thanks";
+      --SuperSticker-Emoji: url("https://cdn.7tv.app/emote/01GTCDFS3R000FNKGF7EZAQKYW/4x.avif");
+      /* Membership-Gift Config */
+      --MB-Sub-Color-Text: #0cf22b;
+      --MB-Sub-Text: "Thanks!";
+      --MB-Reedem-Name: #15ff00;
+      --MB-Reedem-Text: #34eb9b;
+      --MB-Reedem-Icon: #f7f70a;
+      --MB-Reedem-BG: url("https://github.com/AppleSang/CSS-Chat-For-Youtube/raw/refs/heads/main/asset/Sunset.webp"); /* Leave blank if dont want GIF background */
+      --MB-Reedem-SBG: #f70aa0; 
+      --MB-Sub-Bottom-Text-BG: url("https://github.com/AppleSang/CSS-Chat-For-Youtube/raw/refs/heads/main/asset/Sunset.webp");
+      --member-clr: #0f9d58;
+      --banner-gift: url("https://cdn.7tv.app/emote/01GS22W80R0009G7TSP5DDBAEB/4x.avif");
+      --banner-member: url("https://cdn.7tv.app/emote/01GQZNGR10000DE69TSND12YX0/4x.webp");
+      /* SuperChat Config */
+      --animateT1: url("https://github.com/AppleSang/CSS-Chat-For-Youtube/raw/refs/heads/main/asset/Dark_Iridescent.webp");
+      --bannerT1: url("https://cdn.7tv.app/emote/01HQMMAVGG0000ET0QXG5K6CGY/4x.webp");
+      --bannerT2: url("https://cdn.7tv.app/emote/01HS47Q1WR0002CEEGWVSC5CAF/4x.webp");
+      --bannerT3: url("https://cdn.7tv.app/emote/01GRNXEZ900001TG5544QSNG9J/4x.webp");
+      --bannerT4: url("https://cdn.7tv.app/emote/01GRK2E5A80004NWC6YE8DQKAG/4x.webp");
+      --bannerT5: url("https://cdn.7tv.app/emote/01GRNXGK180005B4ASYN4F5MN9/4x.webp");
+      --bannerT6: url("https://cdn.7tv.app/emote/01HSNKA2KG0008X5EVEFNR876A/4x.webp");
+      --bannerT7: url("https://cdn.7tv.app/emote/01GRP98HA000062ZG67VX7BPY2/4x.webp");
+    }
+
+    /* Animation CSS */
+
+@keyframes photoAnim {
+      0% {
+        opacity: 0%;
+        margin-top: 40px;
+        margin-bottom: -40px;
+      }
+      15% {
+        opacity: 100%;
+        margin-top: 13px;
+        margin-bottom: 13px;
+      }
+    }
+@keyframes slideIn {
+        from { transform: translateY(100%); }
+        to { transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes badgeFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(0.8);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-30px); }
+      60% { transform: translateY(-15px); }
+  }
+
+    @keyframes nameAnim {
+      0% {
+        opacity: 0%;
+      }
+      15% {
+        opacity: 0%;
+      }
+      30% {
+        opacity: 100%;
+      }
+    } 
+   @keyframes msgAnimS {
+      0% {
+        opacity: 0%;
+        transform-origin: top left;
+        transform: scale(0);
+      }
+      15% {
+        opacity: 0%;
+        transform-origin: top left;
+        transform: scale(0);
+      }
+      30% {
+        opacity: 100%;
+        transform-origin: top left;
+        transform: scale(1.1);
+      }
+    }
+
+
+    @keyframes rank {
+  0% {
+    opacity: 0;
+    transform: rotate(-540deg) scale(2);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(346deg) scale(1);
+  }
+}
+   
+    /* Another Function */
+
+    /* Chat "Disable" */
+    yt-live-chat-message-renderer #text {
+      position: relative;
+      color: transparent;
+    }
+    yt-live-chat-message-renderer #text::after {
+      background: #ee2f2f var(--Chat-Disable-BG) center center/cover no-repeat fixed;
+      content: var(--Chat-Disable-Text);
+      color: blue;
+      font-family: "Pacifico";
+      font-size: 55px;
+      text-align: center;
+      border-radius: 10px 6px 10px 6px;
+    }
+    yt-live-chat-message-renderer #text::before {
+      background: #ee2f2f url("https://github.com/AppleSang/LumboChat-CSS-Youtube/raw/refs/heads/main/asset/Crimson.webp") center center/cover no-repeat fixed;
+      position: absolute;
+      content: "Chat CSS Made By AppleSang";
+      color: black;
+      transform: translate(0px, 220px);
+      font-family: "Pacifico";
+      font-size: 40px;
+      text-align: center;
+      border-radius: 10px 6px 10px 6px;
+    }
+    yt-live-chat-message-renderer {
+     background-color: transparent !important;
+    }
+
+    /* Chat Invaild */
+    #content h1::after {
+     background-color: red; /* hoặc bất kỳ màu nào */
+     content: " Sai Code Stream, Hãy Sửa Lại // Cant Found Your Stream, Please Check Link Chat";
+    }
+    #monkey {
+     display: none;
+    }
+    #yt-masthead {
+     display: none !important;
+    }
+
+   /* Hide Like From SuperChat */ 
+    #action-buttons {
+      display: none !important;
+    }
+   
+   /* MAIN CSS CODE - MODIFY WHEN YOU KNOW WHAT YOU DO  */
+
+    body {
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0);
+    }
+    yt-live-chat-banner-manager {
+      display: none !important;
+    }
+
+    yt-live-chat-action-panel-renderer,
+    yt-live-chat-renderer #action-panel {
+      display: none !important;
+    }
+    /* Transparent background. */
+    yt-live-chat-renderer {
+      background-color: transparent !important;
+      padding: 20px;
+    }
+    yt-live-chat-text-message-renderer,
+    yt-live-chat-text-message-renderer[is-highlighted] {
+      background-color: transparent !important;
+    }
+
+    yt-live-chat-text-message-renderer[author-type="owner"],
+    yt-live-chat-text-message-renderer[author-type="owner"][is-highlighted] {
+      background-color: transparent !important;
+    }
+
+    yt-live-chat-text-message-renderer[author-type="moderator"],
+    yt-live-chat-text-message-renderer[author-type="moderator"][is-highlighted] {
+      background-color: transparent !important;
+    }
+
+    yt-live-chat-text-message-renderer[author-type="member"],
+    yt-live-chat-text-message-renderer[author-type="member"][is-highlighted] {
+      background-color: transparent !important;
+    }
+
+
+
+    /* Level Rank Config */
+    .yt-spec-button-shape-next.yt-spec-button-shape-next--filled.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--size-xs.yt-spec-button-shape-next--icon-leading.yt-spec-button-shape-next--enable-backdrop-filter-experiment {
+      outline: 1px solid #ff0000;
+      position: absolute;
+    /*  transform: translate(-66px, 26px); */
+      left: -20px;
+      z-index: 999999;
+      animation: rank 2s ease 0s 1 normal forwards;
+    }
+
+    /* Outlines */
+
+    yt-live-chat-renderer * {
+      font-family: "Open Sans";
+      font-size: 18px !important;
+      line-height: normalpx !important;
+    }
+
+    yt-live-chat-text-message-renderer #content,
+    yt-live-chat-legacy-paid-message-renderer #content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      max-width: 85% !important;
+      margin-left: 20px;
+    }
+
+
+    /* Hide scrollbar. */
+    yt-live-chat-item-list-renderer #items {
+      overflow: hidden !important;
+    }
+
+    yt-live-chat-item-list-renderer #item-scroller {
+      overflow: hidden !important;
+    }
+
+    /* Hide header and input. */
+    yt-live-chat-header-renderer,
+    yt-live-chat-message-input-renderer {
+      display: none !important;
+    }
+
+    /* Reduce side padding. */
+    yt-live-chat-paid-sticker-renderer,
+    yt-live-chat-membership-item-renderer,
+    yt-live-chat-text-message-renderer,
+    yt-live-chat-legacy-paid-message-renderer {
+      margin-top: 22px !important;
+      padding-left: 4px !important;
+      padding-right: 4px !important;
+    }
+    yt-live-chat-paid-message-renderer #author-name-chip {
+     z-index: 9999;
+    }
+    yt-live-chat-membership-item-renderer #header,
+    yt-live-chat-paid-message-renderer #header {
+      padding-left: 4px !important;
+      padding-right: 4px !important;
+      color: transparent;
+    }
+    yt-live-chat-text-message-renderer {
+      margin-top: 10px !important;
+      margin-bottom: 10px !important;
+      overflow: visible !important;
+    }
+    /* Location Chat Owner */
+    yt-live-chat-text-message-renderer[author-type="owner"] {
+      margin: 15px;
+      display: flex;
+      flex-direction: row-reverse;
+    }
+    /* Avatars. */
+    yt-live-chat-text-message-renderer #author-photo,
+    yt-live-chat-legacy-paid-message-renderer #author-photo {
+      position: relative;
+      width: 24px !important;
+      height: 24px !important;
+      border-radius: 24px !important;
+      margin-right: 6px !important;
+    }
+    yt-live-chat-text-message-renderer #author-photo {
+      transform-origin: center;
+      transform: scale(2.2);
+      margin: 13px;
+      animation: photoAnim 2s ease-in-out;
+    }
+
+    yt-live-chat-text-message-renderer[author-type="owner"] #author-photo {
+      margin-right: 20px !important;
+    }
+
+    /* Hide badges. NEW Relocation */
+
+
+
+    yt-live-chat-author-badge-renderer[aria-label="Member"],
+    yt-live-chat-author-badge-renderer[aria-label="Channel member"] {
+      transform: scale(0.8);
+      margin-left: 5px; /* cách ra bên trái */
+      filter: drop-shadow(0 0 2px #2ba624); /* xanh lá */
+    }
+
+
+    /* Timestamps. */
+    yt-live-chat-text-message-renderer #timestamp {
+      color: #999999 !important;
+      font-family: "Open Sans";
+      font-size: 16px !important;
+      line-height: 16px !important;
+    }
+
+    yt-live-chat-text-message-renderer #content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      max-width: 85% !important;
+      margin-left: 20px;
+    }
+
+    yt-live-chat-text-message-renderer[author-type="owner"] #content {
+      position: relative;
+      margin-right: 20px;
+    }
+
+    yt-live-chat-author-badge-renderer[type="moderator"] {
+    }
+
+
+    /* Channel names. */
+    yt-live-chat-text-message-renderer #author-name {
+      color: var(--Viewer-Name-Color) !important;
+      font-family: "Open Sans";
+      font-size: 18px !important;
+      line-height: 20px !important;
+      font-weight: 600 !important;
+    }
+    yt-live-chat-text-message-renderer[author-type="member"] #author-name {
+      color: var(--Member-Name-Color) !important;
+    }
+    yt-live-chat-text-message-renderer[author-type="moderator"] #author-name {
+      color: var(--Mod-Name-Color) !important;
+      background: var(--modBg);
+    }
+    yt-live-chat-text-message-renderer[author-type="owner"] #author-name {
+      color: var(--Owner-Name-Color) !important;
+      background: var(--ownerBg) center;
+      border-radius: 20px 0px 20px 0px;
+      scale: 0.9;
+      transform: rotate(3deg);
+    }
+    yt-live-chat-text-message-renderer yt-live-chat-author-chip {
+      animation: slideIn 0.6s ease-in-out;
+    }
+
+
+    yt-live-chat-text-message-renderer[author-type="owner"]
+      yt-live-chat-author-chip {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 0px;
+    }
+
+    yt-live-chat-text-message-renderer[author-type="owner"] #author-name {
+      text-align: top !important;
+    }
+
+    /* Messages. */
+    yt-live-chat-text-message-renderer #message {
+      color: var(--viewer-text) !important;
+      font-family: "Open Sans";
+      font-size: 18px !important;
+      line-height: 20px !important;
+      letter-spacing: normalpx !important;
+      padding: 16px;
+      font-weight: 600 !important;
+      background-color: var(--viewerBg);
+      border-radius: 0px 20px 60px 40px;
+      margin-top: -22px;
+      animation: msgAnim 2s ease-in-out;
+    }
+
+
+    yt-live-chat-text-message-renderer[author-type="member"] #message {
+      color: var(--member-text) !important;
+      background: 
+        var(--memberBg) center center/cover no-repeat fixed,
+        linear-gradient(270deg,rgba(255, 213, 0, 1) 0%, rgba(29, 250, 42, 1) 75%);
+    }
+    yt-live-chat-text-message-renderer[author-type="moderator"] #message {
+      color: var(--mod-text) !important;
+      background: 
+        var(--modBg) center center/cover no-repeat fixed,
+        linear-gradient(124deg,rgba(13, 0, 255, 1) 0%, rgba(170, 0, 255, 1) 100%);
+    }
+
+    @keyframes msgAnim {
+      0% {
+        opacity: 0%;
+        transform-origin: top left;
+        transform: scale(0);
+      }
+      15% {
+        opacity: 20%;
+        transform-origin: top left;
+        transform: scale(0);
+      }
+      30% {
+        opacity: 100%;
+        transform-origin: top left;
+        transform: scale(1);
+      }
+    }
+    yt-live-chat-text-message-renderer[author-type="owner"] #message {
+      background: 
+        var(--ownerBg) center center/cover no-repeat fixed,
+        linear-gradient(274deg,rgba(0, 255, 247, 0.6) 0%, rgba(106, 255, 0, 1) 100%);
+      color: var(--owner-text) !important;
+      border-radius: 10px 0px 10px 10px;
+      animation: OmsgAnim 2s ease-in-out;
+    }
+    @keyframes OmsgAnim {
+      0% {
+        opacity: 0%;
+        transform-origin: top right;
+        transform: scale(0);
+      }
+      15% {
+        opacity: 0%;
+        transform-origin: top right;
+        transform: scale(0);
+      }
+      30% {
+        opacity: 100%;
+        transform-origin: top right;
+        transform: scale(1);
+      }
+    }
+
+    /* SuperChat/Fan Funding Messages. */
+    yt-live-chat-paid-message-renderer #author-name,
+    yt-live-chat-paid-message-renderer #author-name *,
+    yt-live-chat-legacy-paid-message-renderer #event-text,
+    yt-live-chat-legacy-paid-message-renderer #event-text * {
+      color: #ffffff !important;
+      font-family: "Open Sans";
+      font-size: 20px !important;
+      line-height: 20px !important;
+    }
+
+    yt-live-chat-legacy-paid-message-renderer #detail-text,
+    yt-live-chat-legacy-paid-message-renderer #detail-text * {
+      color: #ffffff !important;
+      font-family: "Open Sans";
+      font-size: 18px !important;
+      line-height: 18px !important;
+    }
+
+    yt-live-chat-paid-message-renderer #content,
+    yt-live-chat-paid-message-renderer #content * {
+      color: #ffffff !important;
+      font-family: "Open Sans";
+      font-size: 18px !important;
+      line-height: 18px !important;
+    }
+
+    yt-live-chat-moderation-message-renderer {
+      display: none !important;
+    }
+
+    yt-live-chat-paid-message-renderer {
+      margin: 4px 0 !important;
+    }
+
+    yt-live-chat-legacy-paid-message-renderer {
+      background-color: #0f9d58 !important;
+      margin: 4px 0 !important;
+    }
+
+    yt-live-chat-text-message-renderer a,
+    yt-live-chat-legacy-paid-message-renderer a {
+      text-decoration: none !important;
+    }
+
+    yt-live-chat-text-message-renderer[is-deleted],
+    yt-live-chat-legacy-paid-message-renderer[is-deleted] {
+      display: none !important;
+    }
+
+    yt-live-chat-ticker-renderer {
+      background-color: transparent !important;
+      box-shadow: none !important;
+    }
+    yt-live-chat-ticker-renderer {
+      display: none !important;
+    }
+
+    yt-live-chat-ticker-paid-message-item-renderer,
+    yt-live-chat-ticker-paid-message-item-renderer *,
+    yt-live-chat-ticker-sponsor-item-renderer,
+    yt-live-chat-ticker-sponsor-item-renderer * {
+      color: #ffffff !important;
+      font-family: "Open Sans";
+    }
+
+    yt-live-chat-mode-change-message-renderer,
+    yt-live-chat-viewer-engagement-message-renderer,
+    yt-live-chat-restricted-participation-renderer {
+      display: none !important;
+    }
+
+    yt-live-chat-banner-manager {
+      display: none !important;
+    }
+
+    yt-live-chat-action-panel-renderer,
+    yt-live-chat-renderer #action-panel {
+      display: none !important;
+    }
+    yt-live-chat-paid-message-renderer {
+      overflow: visible;
+      padding: 0 !important;
+      margin-top: 20px !important;
+      margin-bottom: 20px !important;
+    }
+
+    yt-live-chat-membership-item-renderer #card,
+    yt-live-chat-paid-message-renderer #card {
+      position: relative;
+      overflow: visible;
+    }
+     /* Avartar Membership Gift */
+    ytd-sponsorships-live-chat-header-renderer #author-photo {
+      position: absolute;
+      z-index: 9999;
+      left: 22px;
+      top: 2px;
+      scale: 2.2;
+      border-radius: 0 !important;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      animation: paidPAnim 0.7s ease-in-out;
+    }
+    /* Avatar Mbship- SPChat */
+    
+    yt-live-chat-membership-item-renderer #author-photo,
+    yt-live-chat-paid-message-renderer #author-photo {
+      position: absolute;
+      z-index: 9999;
+      right: 6px;
+      top: 16px;
+      scale: 1.66;
+      border-radius: 0 !important;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      animation: paidPAnim 0.7s ease-in-out;
+    }
+    ytd-sponsorships-live-chat-header-renderer #author-photo {
+      transform: scale(0.8);
+      transform-origin: top center;
+    }
+    @keyframes paidPAnim {
+      0% {
+        opacity: 0%;
+        top: 0px;
+      }
+      50% {
+        opacity: 0%;
+        top: 0px;
+      }
+      100% {
+        opacity: 100%;
+        top: 20px;
+      }
+    }
+
+    yt-live-chat-membership-item-renderer #card #header,
+    yt-live-chat-paid-message-renderer #card #header {
+      border-radius: 0 30px 0 0 !important;
+      background-color: #ffffff;
+      position: relative;
+      overflow: visible;
+      padding: 10px;
+      border-bottom: 7px solid var(--yt-live-chat-paid-message-primary-color);
+      animation: cardAnim 0.5s ease-in-out;
+    }
+    @keyframes cardAnim {
+      0% {
+        opacity: 0%;
+        margin: 0px 20px 0px -20px;
+      }
+      50% {
+        opacity: 100%;
+        margin: unset;
+      }
+    }
+    yt-live-chat-membership-item-renderer #card #header {
+      border-bottom: 7px solid var(--member-clr);
+    }
+    yt-live-chat-paid-message-renderer #message {
+      text-align: right;
+    }
+    ytd-sponsorships-live-chat-header-renderer #header #content::after,
+    yt-live-chat-membership-item-renderer #card #header::after,
+    yt-live-chat-paid-message-renderer #card #header::after {
+      content: "";
+      width: 68px;
+      height: 113px;
+      position: absolute;
+      top: 0;
+      left: 10px;
+      transform-origin: top left;
+      background: var(--bannerT1) center center/cover no-repeat;
+      z-index: 9999999;
+      animation: bannerAnim 0.7s ease-in-out;
+    }
+    @keyframes bannerAnim {
+      0% {
+        opacity: 0%;
+        top: -20px;
+      }
+      50% {
+        opacity: 0%;
+        top: -20px;
+      }
+      100% {
+        opacity: 100%;
+        top: 0px;
+      }
+    }
+    ytd-sponsorships-live-chat-header-renderer #header #content::after {
+      background: var(--banner-gift) center center/cover no-repeat;
+      transform: scale(0.8);
+      left: 330px;
+      z-index: 9999;
+      transform: rotate(333deg);
+      transform-origin: top center;
+    }
+    yt-img-shadow {
+     background-color: green; 
+    }
+    yt-live-chat-membership-item-renderer #message {
+     text-align: center;
+     text-indent: 100px;
+    }
+    yt-live-chat-membership-item-renderer #content {
+     background: #00ff40 var(--MB-Sub-Bottom-Text-BG) center center/cover no-repeat local;
+    }
+    yt-live-chat-membership-item-renderer #header-subtext::after {
+
+    } 
+    yt-live-chat-membership-item-renderer #card #header::after {
+      font-family: "Pacifico";
+      color: var(--MB-Sub-Color-Text);
+      content: var(--MB-Sub-Text);
+      position: absolute;
+      bottom: 22px;
+      background: var(--banner-member) center center/contain no-repeat;
+      background-size: contain;
+      transform-origin: top right;
+      left: 12px;
+      z-index: 9999991;
+    }
+    yt-live-chat-paid-message-renderer[style*="rgba(0,229,255,1)"]
+      #card
+      #header::after {
+      background: var(--bannerT2) center center/cover no-repeat;
+    }
+    yt-live-chat-paid-message-renderer[style*="rgba(29,233,182,1)"]
+      #card
+      #header::after {
+      background: var(--bannerT3) center center/cover no-repeat;
+    }
+    yt-live-chat-paid-message-renderer[style*="rgba(255,202,40,1)"]
+      #card
+      #header::after {
+      background: var(--bannerT4) center center/cover no-repeat;
+    }
+    yt-live-chat-paid-message-renderer[style*="rgba(245,124,0,1)"]
+      #card
+      #header::after {
+      background: var(--bannerT5) center center/cover no-repeat;
+    }
+    yt-live-chat-paid-message-renderer[style*="rgba(233,30,99,1)"]
+      #card
+      #header::after {
+      background: var(--bannerT6) center center/cover no-repeat;
+    }
+    yt-live-chat-paid-message-renderer[style*="rgba(230,33,23,1)"]
+      #card
+      #header::after {
+      background: var(--bannerT7) center center/cover no-repeat;
+    }
+
+    yt-live-chat-membership-item-renderer #card #header::before,
+    yt-live-chat-paid-message-renderer #card #header::before {
+      content: "";
+      width: 100%;
+      height: 4px;
+      position: absolute;
+      left: 0;
+      bottom: 5px;
+      background-color: var(--yt-live-chat-paid-message-primary-color);
+      z-index: 10;
+      animation: amountAnim 1s ease-in-out;
+    }
+
+    yt-live-chat-membership-item-renderer #card #header::before {
+      background-color: var(--member-clr) !important;
+    }
+
+    yt-live-chat-membership-item-renderer #card #header-content-primary-column,
+    yt-live-chat-paid-message-renderer #card #header-content-primary-column {
+      display: flex;
+      flex-direction: column-reverse;
+      margin-left: 85px;
+    }
+
+    yt-live-chat-membership-item-renderer #header #author-name,
+    yt-live-chat-paid-message-renderer #header #purchase-amount {
+      color: var(--yt-live-chat-paid-message-color) !important;
+    }
+    ytd-sponsorships-live-chat-gift-purchase-announcement-renderer
+      #header
+      #content
+      #author-name {
+      color: #ffffff;
+    }
+    yt-live-chat-paid-message-renderer #header #purchase-amount {
+      animation: amountAnim 0.7s ease-in-out;
+      z-index: 2;
+    }
+    yt-live-chat-membership-item-renderer #header #header-subtext,
+    yt-live-chat-paid-message-renderer #header #purchase-amount-column {
+      font-weight: 700;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: -18px;
+    }
+    yt-live-chat-membership-item-renderer #header #header-content-inner-column,
+    yt-live-chat-membership-item-renderer #header #header-primary-text {
+      color: #000;
+      margin-top: -20px;
+    }
+
+    yt-live-chat-membership-item-renderer[show-only-header]
+      #header
+      #header-content-inner-column {
+      margin-top: unset;
+    }
+
+    yt-live-chat-membership-item-renderer #header #author-name,
+    yt-live-chat-paid-message-renderer #header #author-name {
+      color: #000 !important;
+      font-weight: 700;
+      margin-top: 10px;
+      padding-bottom: 20px;
+    }
+
+    yt-live-chat-membership-item-renderer
+      #header
+      #header-content-primary-column
+      #header-subtext::before,
+    yt-live-chat-paid-message-renderer #card #purchase-amount::before {
+      content: "";
+      width: 100%;
+      height: 30px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: var(--yt-live-chat-paid-message-primary-color);
+      border-radius: 0px 45px 0px 0px;
+      z-index: -10;
+      animation: amountAnim 1s ease-in-out;
+    }
+
+    @keyframes amountAnim {
+      0% {
+        color: #ffffff;
+        opacity: 0%;
+        width: 0%;
+      }
+
+      50% {
+        color: var(--yt-live-chat-paid-message-color) !important;
+        opacity: 100%;
+        width: 100%;
+      }
+    }
+
+    yt-live-chat-membership-item-renderer
+      #header
+      #header-content-primary-column
+      #header-subtext {
+      z-index: 99;
+    }
+    yt-live-chat-membership-item-renderer
+      #header
+      #header-content-primary-column
+      #header-subtext::before {
+      z-index: -1;
+      background-color: var(--member-clr) !important;
+    }
+    yt-live-chat-paid-message-renderer[show-only-header] #card #content {
+      display: none;
+    }
+    yt-live-chat-membership-item-renderer #card #content,
+    yt-live-chat-paid-message-renderer #card #content {
+      margin-top: 10px;
+      animation: msgPAnim 1s ease-in-out;
+    }
+    @keyframes msgPAnim {
+      0% {
+        opacity: 0%;
+        margin-top: -30px;
+        margin-bottom: 30px;
+      }
+      60% {
+        opacity: 0%;
+        margin-top: -30px;
+        margin-bottom: 30px;
+      }
+      85% {
+        opacity: 100%;
+        margin-top: 10px;
+        margin-bottom: unset;
+      }
+    }
+    yt-live-chat-paid-message-renderer #card #content #message {
+      color: var(--yt-live-chat-paid-message-color) !important;
+      font-weight: 600 !important;
+    }
+
+    yt-live-chat-membership-item-renderer #card,
+    yt-live-chat-paid-message-renderer #card {
+      box-shadow: none !important ;
+    }
+    ytd-sponsorships-live-chat-gift-purchase-announcement-renderer
+      #header
+      .rhs-image
+      img {
+      display: none !important;
+    }
+
+    ytd-sponsorships-live-chat-header-renderer {
+      margin-top: 10px !important;
+    }
+
+    ytd-sponsorships-live-chat-header-renderer #header {
+      background-color: transparent !important;
+      margin: auto !important;
+      padding: 0 !important;
+    }
+
+    ytd-sponsorships-live-chat-header-renderer #header-content {
+      margin-left: 65px;
+    }
+    ytd-sponsorships-live-chat-header-renderer #author-name::after {
+      content: "";
+      width: 100%;
+      height: 4px;
+      background-color: var(--blue);
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      animation: amountAnim 1s ease-in-out;
+    }
+    ytd-sponsorships-live-chat-header-renderer #chat-badges {
+      z-index: 999;
+      animation: badgeGift 1s ease-in-out;
+    }
+    @keyframes badgeGift {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 100%;
+      }
+    }
+    ytd-sponsorships-live-chat-header-renderer #author-name::before {
+      content: "";
+      width: 100%;
+      height: 30px;
+      background-color: var(--blue);
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-top-right-radius: 30px;
+      animation: amountAnim 1s ease-in-out;
+      z-index: -1;
+    }
+    ytd-sponsorships-live-chat-header-renderer #primary-text {
+      color: #000 !important;
+      font-weight: 600 !important;
+      margin-top: 15px;
+    }
+    ytd-sponsorships-live-chat-header-renderer #author-name {
+      color: #ffffff !important;
+      font-weight: 700 !important;
+      z-index: 99;
+      margin-top: -5px;
+      animation: nameAnim 1s ease-in-out;
+    }
+    ytd-sponsorships-live-chat-header-renderer #header #content {
+      background-color: #ffffff !important;
+      padding-bottom: 20px;
+      border-top-right-radius: 30px;
+      position: relative;
+      border-bottom: solid 7px var(--blue);
+    }
+
+    yt-live-chat-paid-sticker-renderer #author-photo {
+      animation: photoAnims 1s ease-in-out;
+    }
+    @keyframes photoAnims {
+      0% {
+        opacity: 0%;
+        margin-top: 40px;
+        margin-bottom: -40px;
+      }
+      15% {
+        opacity: 100%;
+        margin-top: unset;
+        margin-bottom: unset;
+      }
+    }
+    yt-live-chat-paid-sticker-renderer #card #sticker {
+      background-color: var( --yt-live-chat-paid-sticker-chip-background-color) !important;
+      z-index: -999;
+      padding: 10px;
+      border-radius: 10px;
+      position: absolute;
+      left: 75px;
+      transform: scale(1.1);
+      bottom: 5px;
+      animation: msgAnimS 0.8s ease-in-out;
+    }
+    
+    /* SuperSticker */
+
+    yt-live-chat-paid-sticker-renderer #sticker-container {
+      overflow: visible !important;
+      margin-bottom: 10px;
+    }
+    yt-live-chat-paid-sticker-renderer {
+      overflow: visible !important;
+      transform-origin: center left;
+    }
+    yt-live-chat-paid-sticker-renderer #card {
+      background: 
+          var(--SuperSticker-BG-Box) center center/cover no-repeat,
+          linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+      box-shadow: 10px 10px 22px 10px #f5ed00;
+      flex-direction: column !important;
+      position: relative;
+      overflow: visible !important;
+      padding-bottom: 70px !important;
+      border-radius: 10px 6px 10px 6px;
+    }
+    yt-live-chat-paid-sticker-renderer #card::after {
+      content: "";
+      position: absolute;
+      top: 10px; 
+      right: 10px;
+      width: 100px;
+      height: 100px;
+      background-image: var(--SuperSticker-Emoji);
+      background-size: cover;
+      background-repeat: no-repeat;
+      z-index: 9999;
+      pointer-events: none;
+}
+  
+    yt-live-chat-paid-sticker-renderer #sticker {
+       background: 
+          var(--SuperSticker-BG-Emote) center center/cover no-repeat,
+          linear-gradient(270deg,rgba(0, 43, 255, 1) 0%, rgba(29, 243, 250, 1) 75%);
+       position: relative;
+    }
+    yt-live-chat-paid-sticker-renderer #sticker::after {
+      z-index: 99999;
+      position: absolute;
+      right: -700px;
+      top: -30px;
+      content: var(--SuperSticker-Text-Box);
+      transform: rotate(356deg);
+      font-size: 66;
+      font-family: Ephesis;
+      white-space: nowrap;
+      filter: drop-shadow(11px 11px 11px #000000);
+      color: purple;
+    }
+    yt-live-chat-paid-sticker-renderer #author-name {
+      color: var(--SuperSticker-Name) !important;
+    }
+    yt-live-chat-paid-sticker-renderer #purchase-amount-chip {
+      color: var(--SuperSticker-Price) !important;
+    }
+    yt-live-chat-paid-sticker-renderer #content #content-primary-column {
+      display: flex;
+      font-weight: 700 !important;
+      flex-direction: row !important;
+         /* Can Insert Background Here */
+    }
+
+
+    /* Annouce Who Picked Drop Membership */
+    ytd-sponsorships-live-chat-gift-redemption-announcement-renderer {
+      background: var(--MB-Reedem-SBG) var(--MB-Reedem-BG) right top/cover no-repeat ;
+      margin: 0px;
+      border-radius: 15px;
+      animation: bounce 2.2s ease-out;
+    }
+    ytd-sponsorships-live-chat-gift-redemption-announcement-renderer #author-name {
+      color: var(--MB-Reedem-Name) !important;
+    }
+    ytd-sponsorships-live-chat-gift-redemption-announcement-renderer #message {
+      color: var(--MB-Reedem-Text) !important;
+    }
+    ytd-sponsorships-live-chat-gift-redemption-announcement-renderer #gift-icon {
+      position: relative;
+      color: var(--MB-Reedem-Icon);
+
